@@ -556,8 +556,7 @@ class TestDataset(Dataset):
                 self.training_unique_atoms,
                 cores=cores,
                 label=label,
-                save=self.save_fps
-                save=False,
+                save=self.save_fps,
                 specific_atoms=self.specific_atoms
             )
             self.isamp_hash = False
