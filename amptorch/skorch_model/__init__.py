@@ -162,6 +162,7 @@ class AMP(Calculator):
         for inputs in dataloader:
             if self.specific_atoms is True:
                 unique_atoms = inputs[2]
+                num_atoms = inputs[3][0]
             for element in unique_atoms:
                 inputs[0][element][0] = inputs[0][element][0].requires_grad_(True)
             energy, forces = model(inputs)
