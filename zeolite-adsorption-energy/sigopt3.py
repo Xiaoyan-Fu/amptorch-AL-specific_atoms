@@ -29,6 +29,7 @@ from torch.utils.data import DataLoader
 from torch.nn import init
 from skorch.utils import to_numpy
 import matplotlib.pyplot as plt
+import os
 conn = Connection(client_token="HKIERIUWCZZNRSGUKWXLXHXHIISCFYUICPJDBPMOLDQZVRZH")
 
 
@@ -62,7 +63,7 @@ print("Create experiment:" + experiment.id)
 
 
 
-def run_model(assignments, numberi):
+def run_model(assignments, numberi=0):
     class train_end_load_best_valid_loss(skorch.callbacks.base.Callback):
         def on_train_end(self, net, X, y):
             net.load_params('valid_best_params.pt')
@@ -161,6 +162,8 @@ def run_model(assignments, numberi):
     ax.scatter(DFT_energies_test, pred_energies_test, c='r')
     ax.set_xlabel('E_DFT')
     ax.set_ylabel('E_ML')
+    if not os.path.isdir('./figures')
+        os.mkdir('./figures')
     figure_name = './figures/DFTvsML'+ str(numberi)+ '.png'
     fig.savefig(figure_name, bbox_inches='tight')
     fig = 0
