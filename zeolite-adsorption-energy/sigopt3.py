@@ -162,7 +162,7 @@ def run_model(assignments, numberi=0):
     ax.scatter(DFT_energies_test, pred_energies_test, c='r')
     ax.set_xlabel('E_DFT')
     ax.set_ylabel('E_ML')
-    if not os.path.isdir('./figures')
+    if not os.path.isdir('./figures'):
         os.mkdir('./figures')
     figure_name = './figures/DFTvsML'+ str(numberi)+ '.png'
     fig.savefig(figure_name, bbox_inches='tight')
