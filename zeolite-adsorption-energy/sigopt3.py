@@ -156,6 +156,7 @@ def run_model(assignments, numberi=0):
     for i in range(len(test_images)):
         print('(',DFT_energies_test[i],';',pred_energies_test[i],') ', end='',file=out_file)
     print('****',file=out_file)
+    plt.cla()
     fig = plt.figure('ML vs DFT')
     ax = fig.add_subplot(111)
     ax.scatter(DFT_energies_train, pred_energies_train, c='b')
@@ -166,7 +167,6 @@ def run_model(assignments, numberi=0):
         os.mkdir('./figures')
     figure_name = './figures/DFTvsML'+ str(numberi)+ '.png'
     fig.savefig(figure_name, bbox_inches='tight')
-    fig = 0
     return energy_rmse_test, energy_rmse_train
 
 
